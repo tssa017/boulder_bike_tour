@@ -14,33 +14,43 @@ const Location = () => {
     const [selectedBiker, setSelectedBiker] = useState(null);
 
     useEffect(() => {
-        axios
-            .get('http://127.0.0.1:3000/bikers')
-            .then((response) => {
+        const fetchBikers = async () => {
+            try {
+                const response = await axios.get(
+                    'http://127.0.0.1:3000/bikers'
+                );
                 const initialBikers = response.data.map((biker) => ({
                     ...biker,
                     position: { lat: biker.latitude, lng: biker.longitude },
                 }));
                 setBikers(initialBikers);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('There was an error fetching the bikers!', error);
-            });
+            }
+        };
 
-        // Shows how the markers can move - ideally would update with API call 👼
-        // const interval = setInterval(() => {
-        //     setBikers((prevBikers) =>
-        //         prevBikers.map((biker) => ({
-        //             ...biker,
-        //             position: {
-        //                 lat: biker.position.lat + (Math.random() - 0.5) * 0.001,
-        //                 lng: biker.position.lng + (Math.random() - 0.5) * 0.001,
-        //             },
-        //         }))
-        //     );
-        // }, 2000);
+        fetchBikers();
 
-        // return () => clearInterval(interval);
+        // Shows how the markers can move when db is updated 👼
+        const interval = setInterval(async () => {
+            try {
+                const response = await axios.get(
+                    'http://127.0.0.1:3000/bikers'
+                );
+                const updatedBikers = response.data.map((biker) => ({
+                    ...biker,
+                    position: {
+                        lat: biker.latitude + (Math.random() - 0.5) * 0.001,
+                        lng: biker.longitude + (Math.random() - 0.5) * 0.001,
+                    },
+                }));
+                setBikers(updatedBikers);
+            } catch (error) {
+                console.error('There was an error fetching the bikers!', error);
+            }
+        }, 2000);
+
+        return () => clearInterval(interval);
     }, []);
 
     return (
@@ -66,11 +76,16 @@ const Location = () => {
                         position={selectedBiker.position}
                         onCloseClick={() => setSelectedBiker(null)}
                     >
-                        <div>
-                            <h2>
+                        <div className="bg-white shadow-md rounded-lg p-4">
+                            <h2 className="text-3xl font-bold text-gray-800 mb-2">
                                 {selectedBiker.first_name}{' '}
                                 {selectedBiker.last_name}
                             </h2>
+                            <div className="mt-4 flex justify-between items-center">
+                                <button className="bg-pink-400 text-white text-lg py-2 px-8 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300">
+                                    Send good vibes ✨
+                                </button>
+                            </div>
                         </div>
                     </InfoWindow>
                 )}
