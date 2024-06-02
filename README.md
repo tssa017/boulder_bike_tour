@@ -134,9 +134,13 @@ end
 
 I would like to acknowledge the following open-source projects for their contributions to this project:
 
-### Images
+### Icons
 
 -   [Twemoji](https://github.com/twitter/twemoji): Utilized the bike emoji for the favicon.ico
+
+### Google Maps
+
+-   [@vis.gl/react-google-maps](https://www.npmjs.com/package/@vis.gl/react-google-maps): Utilized the open source Google Maps React API
 
 ## Resources
 

@@ -16,31 +16,34 @@ const Bikers = () => {
     }, []);
 
     return (
-        <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Bikers</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {bikers.map((biker) => (
-                    <div
-                        key={biker.id}
-                        className="bg-white shadow-md rounded-lg p-4"
-                    >
-                        <h3 className="text-xl font-semibold mb-2">
-                            {biker.first_name} {biker.last_name}
-                        </h3>
-                        <p className="text-gray-600">
-                            City: {biker.city_of_origin}
-                        </p>
-                        <p className="text-gray-600">
-                            State: {biker.state_of_origin}
-                        </p>
-                        <p className="text-gray-600">
-                            Latitude: {biker.latitude}
-                        </p>
-                        <p className="text-gray-600">
-                            Longitude: {biker.longitude}
-                        </p>
-                    </div>
-                ))}
+        <div className="bg-gray-100 min-h-screen">
+            <div className="bg-gradient-to-r from-blue-500 to-green-500 py-20 px-4 sm:px-6 lg:px-8 text-center mb-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-4">
+                    Meet this year's competitors 🔥
+                </h1>
+            </div>
+
+            <div className="container mx-auto p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    {bikers.map((biker) => (
+                        <div
+                            key={biker.id}
+                            className="bg-white shadow-md rounded-lg overflow-hidden transition duration-300 transform hover:scale-105"
+                        >
+                            <div className="bg-gray-800 text-white px-4 py-2">
+                                <h3 className="text-xl font-semibold">
+                                    {biker.first_name} {biker.last_name}
+                                </h3>
+                            </div>
+                            <div className="p-4">
+                                <p className="text-gray-600">
+                                    {biker.city_of_origin},{' '}
+                                    {biker.state_of_origin}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
