@@ -8,7 +8,7 @@ I designed and built this full-stack application as project 7 for the OpenClassr
 
 -   **1**: Users can sign up to participate in the bike competition
 -   **2**: Users can view photos with the hashtags '' and '' using the Flickr API.
--   **3s**: Users can view current rider locations using the ---- API.
+-   **3**: Users can view current rider locations using the ---- API.
 -   **4**: Users can submit entries for the slogan competition and view their results
 -   **4**: Users can ---
 
@@ -92,38 +92,35 @@ Ensure you have the following environment variables set in a `config/.env` file:
 The application uses PostgreSQL as the development and production database. Below is the schema definition:
 
 ```ruby
-ActiveRecord::Schema[7.1].define(version: 0) do
-  enable_extension "plpgsql"
-
-    create_table "users", id: :serial, force: :cascade do |t|
-    t.string "first_name", limit: 50
-    t.string "last_name", limit: 50
-    t.string "email", limit: 255
-    t.string "origin_city", limit: 50
-    t.integer "user_type", limit: 2
-    t.datetime "created_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "updated_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
-    t.check_constraint "user_type >= 0 AND user_type <= 2", name: "users_user_type_check"
+ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
+  create_table "bikers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city_of_origin"
+    t.string "state_of_origin"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "rider_locations", id: :serial, force: :cascade do |t|
-    t.integer "rider_id"
-    t.string "location", limit: 50
-    t.datetime "created_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "updated_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
+  create_table "riders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city_of_origin"
+    t.string "state_of_origin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "submissions", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.string "slogan", limit: 50
-    t.integer "status", limit: 2
-    t.datetime "created_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "updated_at", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
-    t.check_constraint "status >= 0 AND status <= 2", name: "submissions_status_check"
+  create_table "slogan_submissions", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email_address"
+    t.text "slogan_idea"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_foreign_key "rider_locations", "users", column: "rider_id", name: "rider_locations_rider_id_fkey", on_delete: :cascade
-  add_foreign_key "submissions", "users", name: "submissions_user_id_fkey", on_delete: :cascade
 end
 ```
 
