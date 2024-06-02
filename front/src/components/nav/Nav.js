@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Countdown from '../countdown/Countdown';
 import { Link } from 'react-router-dom';
 
 function Nav() {
@@ -7,8 +8,11 @@ function Nav() {
     return (
         <nav className="bg-gray-800 p-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <div className="text-white text-lg font-bold">
+                <Link to="/" className="text-white text-lg font-bold">
                     Boulder Bike Tour
+                </Link>
+                <div className="hidden md:block">
+                    <Countdown />
                 </div>
                 <div className="md:hidden">
                     <button
@@ -32,11 +36,60 @@ function Nav() {
                         </svg>
                     </button>
                 </div>
-                <div
-                    className={`flex-col md:flex md:flex-row md:items-center md:space-x-4 ${
-                        isOpen ? 'flex' : 'hidden'
-                    }`}
-                >
+                <div className="hidden md:flex md:items-center md:space-x-4">
+                    <Link
+                        to="/"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        to="/about"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        About
+                    </Link>
+                    <Link
+                        to="/photos"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Photos
+                    </Link>
+                    <Link
+                        to="/bikers"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Bikers
+                    </Link>
+                    <Link
+                        to="/location"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Location
+                    </Link>
+                    <Link
+                        to="/contest"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Contest
+                    </Link>
+                    <Link
+                        to="/contact"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Contact
+                    </Link>
+                </div>
+            </div>
+            {isOpen && (
+                <div className="md:hidden flex flex-col space-y-2 mt-4">
+                    <Countdown />
+                    <Link
+                        to="/"
+                        className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+                    >
+                        Home
+                    </Link>
                     <Link
                         to="/about"
                         className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
@@ -74,7 +127,7 @@ function Nav() {
                         Contact
                     </Link>
                 </div>
-            </div>
+            )}
         </nav>
     );
 }

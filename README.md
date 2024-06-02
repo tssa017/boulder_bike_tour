@@ -74,6 +74,8 @@ Ensure you have the following environment variables set in a `config/.env` file:
 -   `DB_NAME`
 -   `DB_USER`
 -   `DB_PASSWORD`
+-   `FLICKR_API_KEY`
+-   `MAPS_API_KEY`
 
 ## Usage
 
