@@ -1,0 +1,14 @@
+<h1>Bikers#index</h1>
+<ul>
+  <% @bikers.each do |biker| %>
+    <li>
+      <%= biker.first_name %>
+      <%= biker.last_name %>
+      <%= biker.city_of_origin %>
+      <%= biker.state_of_origin %>
+      <%= biker.latitude %>
+      <%= biker.longitude %>
+
+    </li>
+  <% end %>
+</ul>
