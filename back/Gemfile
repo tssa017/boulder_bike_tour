@@ -50,7 +50,6 @@ gem 'rack-cors'
 # Ruby on Rails request lib
 gem 'faraday'
 
-
 # Load environment variables
 gem 'dotenv-rails', groups: [:development, :test]
 
