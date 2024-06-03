@@ -5,7 +5,7 @@ const jestConfig = {
         '^.+\\.js?$': 'babel-jest',
     },
     moduleNameMapper: {},
-    moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+    moduleFileExtensions: ['js', 'jsx', 'json', 'node', 'test.jsx'],
     globals: {
         'process.env.NODE_ENV': 'test',
     },

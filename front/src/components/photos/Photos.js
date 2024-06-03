@@ -50,10 +50,13 @@ const Photos = () => {
         <div className="bg-gray-100 min-h-screen">
             <div className="bg-gradient-to-r from-blue-500 to-green-500 py-20 px-4 sm:px-6 lg:px-8 text-center mb-8">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold">
-                    Photo gallery 👀
+                    Photo gallery
                 </h2>
             </div>
             <div className="container mx-auto p-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-8 text-center">
+                    Discover the latest tagged photos 👀
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {photos.map((photo) => (
                         <div

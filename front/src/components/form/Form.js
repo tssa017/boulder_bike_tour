@@ -94,7 +94,7 @@ const Form = () => {
                         htmlFor="slogan"
                         className="block text-sm font-semibold"
                     >
-                        Slogan idea 💭
+                        Slogan
                     </label>
                     <input
                         type="text"
@@ -102,6 +102,7 @@ const Form = () => {
                         name="slogan_idea"
                         value={formData.slogan_idea}
                         onChange={handleChange}
+                        maxLength={50} // Slogan ideas must be under 50 characters
                         className="my-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                         required
                         aria-required="true"

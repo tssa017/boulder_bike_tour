@@ -32,12 +32,6 @@ const Home = () => {
                         stunning scenery, challenging routes, and vibrant
                         cycling community that Boulder has to offer.
                     </p>
-                    <p className="text-lg text-gray-600 mb-8">
-                        Whether you're a seasoned cyclist looking for a new
-                        challenge or a beginner wanting to experience the thrill
-                        of a bike race, the Boulder Bike Tour has something for
-                        everyone.
-                    </p>
                 </div>
             </section>
 
@@ -60,6 +54,21 @@ const Home = () => {
                         Register now
                     </Link>
                 </div>
+            </section>
+
+            <section
+                className="py-16 px-4 sm:px-6 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('bike-race.webp')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '60vh',
+                }}
+            >
+                <p className="text-4xl font-extrabold text-yellow-300 m-12">
+                    #BIKEBOULDER
+                </p>
             </section>
         </div>
     );
