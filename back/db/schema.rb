@@ -34,27 +34,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
     t.index ["rider_id"], name: "index_locations_on_rider_id"
   end
 
-  create_table "rider_locations", force: :cascade do |t|
-    t.bigint "rider_id"
-    t.string "location", limit: 50
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.decimal "latitude", precision: 10, scale: 6, null: false
-    t.decimal "longitude", precision: 10, scale: 6, null: false
-    t.index ["rider_id"], name: "index_rider_locations_on_rider_id"
-    t.index ["user_id"], name: "index_rider_locations_on_user_id"
-  end
-
-  create_table "riders", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "city_of_origin"
-    t.string "state_of_origin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "slogan_submissions", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -64,28 +43,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "submissions", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "slogan", limit: 50
-    t.integer "status", limit: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_submissions_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name", limit: 50
-    t.string "last_name", limit: 50
-    t.string "email", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_type", limit: 2, null: false
-    t.string "city", limit: 50
-    t.string "state", limit: 50
-  end
-
-  add_foreign_key "locations", "riders"
-  add_foreign_key "rider_locations", "users", column: "rider_id", on_delete: :cascade
-  add_foreign_key "rider_locations", "users", on_delete: :cascade
-  add_foreign_key "submissions", "users"
 end
