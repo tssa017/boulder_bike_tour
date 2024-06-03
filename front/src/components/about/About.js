@@ -34,7 +34,7 @@ const About = () => {
 
             <section
                 id="experience"
-                className="bg-blue-500 py-16 px-4 sm:px-6 lg:px-8 text-center"
+                className="bg-blue-600 py-16 px-4 sm:px-6 lg:px-8 text-center"
             >
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
@@ -47,13 +47,6 @@ const About = () => {
                         provides a diverse and rewarding experience. Our
                         dedicated team ensures safety, support, and a memorable
                         adventure for every rider.
-                    </p>
-                    <p className="text-lg text-white mb-8">
-                        Join us for an unforgettable experience that celebrates
-                        the joy of cycling and the beauty of Boulder. Whether
-                        you're riding solo, with friends, or as part of a team,
-                        the Boulder Bike Tour is an event you'll want to be a
-                        part of.
                     </p>
                 </div>
             </section>

@@ -75,13 +75,13 @@ const Photos = () => {
                     <button
                         onClick={handlePrevPage}
                         disabled={page === 1}
-                        className="bg-blue-500 text-white text-lg font-extrabold px-4 py-2 rounded-md mr-2 disabled:opacity-50"
+                        className="bg-blue-600 text-white text-lg font-extrabold px-4 py-2 rounded-md mr-2 disabled:opacity-50"
                     >
                         Prev
                     </button>
                     <button
                         onClick={handleNextPage}
-                        className="bg-blue-500 text-white text-lg font-extrabold px-4 py-2 rounded-md disabled:opacity-50"
+                        className="bg-blue-600 text-white text-lg font-extrabold px-4 py-2 rounded-md disabled:opacity-50"
                     >
                         Next
                     </button>

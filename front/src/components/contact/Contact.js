@@ -71,7 +71,7 @@ const Contact = () => {
                         <div className="col-span-2 text-center">
                             <button
                                 type="submit"
-                                className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold uppercase tracking-wide transition duration-300 ease-in-out hover:bg-blue-400"
+                                className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold uppercase tracking-wide transition duration-300 ease-in-out hover:bg-blue-400"
                             >
                                 Send Message
                             </button>
@@ -82,7 +82,7 @@ const Contact = () => {
 
             <section
                 id="contact-info"
-                className="bg-blue-500 py-16 px-4 sm:px-6 lg:px-8 text-center"
+                className="bg-blue-600 py-16 px-4 sm:px-6 lg:px-8 text-center"
             >
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">

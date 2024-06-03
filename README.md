@@ -11,6 +11,7 @@ I designed and built this full-stack application as project 7 for the OpenClassr
 -   **3**: Users can view basic info about each biker.
 -   **4**: Users can track biker locations in real time using the Google Maps API.
 -   **5**: Users can submit entries for the slogan competition.
+-   **6**: Users can interact with accessible interface that conforms with current [WCAG]('https://www.w3.org/WAI/standards-guidelines/wcag/') criteria.
 
 ## Back-end requirements
 
