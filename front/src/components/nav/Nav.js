@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Countdown from '../countdown/Countdown';
 import { Link } from 'react-router-dom';
 
 function Nav() {
@@ -11,9 +10,6 @@ function Nav() {
                 <Link to="/" className="text-white text-lg font-bold">
                     Boulder Bike Tour
                 </Link>
-                <div className="hidden md:block">
-                    <Countdown />
-                </div>
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -65,7 +61,7 @@ function Nav() {
                         to="/location"
                         className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
                     >
-                        Location
+                        Biker location
                     </Link>
                     <Link
                         to="/contest"
@@ -83,7 +79,6 @@ function Nav() {
             </div>
             {isOpen && (
                 <div className="md:hidden flex flex-col space-y-2 mt-4">
-                    <Countdown />
                     <Link
                         to="/"
                         className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
@@ -115,10 +110,10 @@ function Nav() {
                         Contest
                     </Link>
                     <Link
-                        to="/media"
+                        to="/location"
                         className="current text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
                     >
-                        Media
+                        Biker location
                     </Link>
                     <Link
                         to="/contact"

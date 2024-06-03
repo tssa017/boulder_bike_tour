@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Countdown = () => {
     const calculateTimeLeft = () => {
-        const raceDate = new Date('2025-04-01T00:00:00');
+        const raceDate = new Date('2025-04-01T00:00:00'); // Changed because date listed on project is in the past
         const now = new Date();
         const difference = raceDate - now;
 
@@ -46,7 +46,7 @@ const Countdown = () => {
     });
 
     return (
-        <div className="flex overflow-x-auto whitespace-nowrap bg-gray-800 font-extrabold text-yellow-400 p-2 rounded-md">
+        <div className="overflow-x-auto whitespace-nowrap text-2xl font-extrabold text-gray-800">
             {timerComponents.length ? timerComponents : <span>Time's up!</span>}
         </div>
     );
