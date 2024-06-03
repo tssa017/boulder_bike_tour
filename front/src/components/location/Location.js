@@ -21,6 +21,7 @@ const Location = () => {
                 );
                 const initialBikers = response.data.map((biker) => ({
                     ...biker,
+                    // Transform data by adding a position property containing coordinates
                     position: { lat: biker.latitude, lng: biker.longitude },
                 }));
                 setBikers(initialBikers);
@@ -29,9 +30,11 @@ const Location = () => {
             }
         };
 
+        // Calls fetchBikers function inside the useEffect hook to fetch bikers data when the component mounts
         fetchBikers();
 
         // Shows how the markers can move when db is updated 👼
+        // Sets up a setInterval function inside another useEffect hook to periodically fetch updated bikers data every 2 seconds
         const interval = setInterval(async () => {
             try {
                 const response = await axios.get(
@@ -39,6 +42,7 @@ const Location = () => {
                 );
                 const updatedBikers = response.data.map((biker) => ({
                     ...biker,
+                    // Simulate movement by updating bikers positions
                     position: {
                         lat: biker.latitude + (Math.random() - 0.5) * 0.001,
                         lng: biker.longitude + (Math.random() - 0.5) * 0.001,
@@ -50,6 +54,7 @@ const Location = () => {
             }
         }, 2000);
 
+        // Prevent memory leak when component unmounts!
         return () => clearInterval(interval);
     }, []);
 
