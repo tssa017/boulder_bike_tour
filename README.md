@@ -1,4 +1,4 @@
-# (WIP) Boulder Bike Tour
+# Boulder Bike Tour
 
 Boulder Bike Tour is a website for a Colorado-based bike race that allows users to sign up, track rider locations, view photos, and submit entries to a competition 🚲
 
@@ -6,11 +6,11 @@ I designed and built this full-stack application as project 7 for the OpenClassr
 
 ## Features
 
--   **1**: Users can sign up to participate in the bike competition
--   **2**: Users can view photos with the hashtags '' and '' using the Flickr API.
--   **3**: Users can view current rider locations using the ---- API.
--   **4**: Users can submit entries for the slogan competition and view their results
--   **4**: Users can ---
+-   **1**: Users can track the time until the Boulder Bike Tour begins.
+-   **2**: Users can view photos with the hashtags 'bikerace' and 'BoulderBikeTour' using the Flickr API with pagination.
+-   **3**: Users can view basic info about each biker.
+-   **4**: Users can track biker locations in real time using the Google Maps API.
+-   **5**: Users can submit entries for the slogan competition.
 
 ## Back-end requirements
 
@@ -69,25 +69,23 @@ npm start
 
 ## Configuration
 
-Ensure you have the following environment variables set in a `config/.env` file:
+Ensure you have the following environment variables set in `config/.env` files in their respective repositories:
+
+### Back .env
 
 -   `DB_NAME`
 -   `DB_USER`
 -   `DB_PASSWORD`
--   `FLICKR_API_KEY`
--   `MAPS_API_KEY`
 
-## Usage
+### Front .env
 
-1.
-2.
-3.
+-   `REACT_APP_FLICKR_API_KEY`
+-   `REACT_APP_GOOGLE_MAPS_API_KEY`
 
 ## Models
 
--   **users**: - Represents a rider's information
--   **rider_locations**: Stores a rider's given location at any point in the contest
--   **submissions**: - Represents a user's submission to the slogan competition
+-   **bikers**: - Represents a rider's personal information and coordinates
+-   **slogan_submissions**: - Represents a website user's submission to the slogan competition
 
 ## Database Schema
 
@@ -95,8 +93,6 @@ The application uses PostgreSQL as the development and production database. Belo
 
 ```ruby
 ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
-  enable_extension "plpgsql"
-
   create_table "bikers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -108,15 +104,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.float "latitude"
-    t.float "longitude"
-    t.bigint "rider_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rider_id"], name: "index_locations_on_rider_id"
-  end
-
   create_table "slogan_submissions", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -125,12 +112,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_01_171834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
 ```
 
 ## Testing
 
----
+### To run Rails tests, use the following command in your terminal:
+
+```bash
+rails test
+```
+
+### To run front tests, use the following command in your terminal:
+
+```bash
+npx jest
+```
 
 ## Acknowledgments
 
