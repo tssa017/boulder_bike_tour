@@ -82,6 +82,7 @@ Ensure you have the following environment variables set in `config/.env` files i
 
 -   `REACT_APP_FLICKR_API_KEY`
 -   `REACT_APP_GOOGLE_MAPS_API_KEY`
+-   `REACT_APP_API_URL`
 
 ## Models
 
