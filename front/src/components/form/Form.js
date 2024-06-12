@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const Form = () => {
     const [formData, setFormData] = useState({
         first_name: '',
@@ -19,12 +21,9 @@ const Form = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(
-                'http://127.0.0.1:3000/slogan_submissions',
-                {
-                    slogan_submission: formData,
-                }
-            );
+            const response = await axios.post(`${apiUrl}/slogan_submissions`, {
+                slogan_submission: formData,
+            });
             console.log('Submission successful!', response.data);
             setFormData({
                 first_name: '',

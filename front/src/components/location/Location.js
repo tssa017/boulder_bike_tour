@@ -8,6 +8,7 @@ import {
 } from '@vis.gl/react-google-maps';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Location = () => {
     const [bikers, setBikers] = useState([]);
@@ -16,9 +17,7 @@ const Location = () => {
     useEffect(() => {
         const fetchBikers = async () => {
             try {
-                const response = await axios.get(
-                    'http://127.0.0.1:3000/bikers'
-                );
+                const response = await axios.get(`${apiUrl}/bikers`);
                 const initialBikers = response.data.map((biker) => ({
                     ...biker,
                     // Transform data by adding a position property containing coordinates
@@ -37,9 +36,7 @@ const Location = () => {
         // Sets up a setInterval function inside another useEffect hook to periodically fetch updated bikers data every 2 seconds
         const interval = setInterval(async () => {
             try {
-                const response = await axios.get(
-                    'http://127.0.0.1:3000/bikers'
-                );
+                const response = await axios.get(`${apiUrl}/bikers`);
                 const updatedBikers = response.data.map((biker) => ({
                     ...biker,
                     // Simulate movement by updating bikers positions
