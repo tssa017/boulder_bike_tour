@@ -17,7 +17,9 @@ const Form = () => {
         e.preventDefault();
 
         axios
-            .post('http://127.0.0.1:3000/slogan_submissions', formData)
+            .post('http://127.0.0.1:3000/slogan_submissions', {
+                slogan_submission: formData,
+            })
             .then((response) => {
                 console.log('Submission successful!', response.data);
                 setFormData({
