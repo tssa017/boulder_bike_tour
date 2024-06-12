@@ -1,23 +1,22 @@
 class SloganSubmissionsController < ApplicationController
   def index
     @slogan_submissions = SloganSubmission.all
-  end
-
-  def new
-    @slogan_submission = SloganSubmission.new
+    render json: @slogan_submissions
   end
 
   def create
     @slogan_submission = SloganSubmission.new(slogan_submission_params)
 
     if @slogan_submission.save
-      redirect_to @slogan_submission
+      render json: @slogan_submission, status: :created
     else
-      render :new, status: :unprocessable_entity
+      Rails.logger.error("SloganSubmission creation failed: #{@slogan_submission.errors.full_messages}")
+      render json: @slogan_submission.errors, status: :unprocessable_entity
     end
   end
 
   private
+
   def slogan_submission_params
     params.require(:slogan_submission).permit(
       :first_name,
