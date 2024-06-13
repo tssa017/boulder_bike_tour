@@ -20,7 +20,7 @@ const Location = () => {
                 const response = await axios.get(`${apiUrl}/bikers`);
                 const initialBikers = response.data.map((biker) => ({
                     ...biker,
-                    // Transform data by adding a position property containing coordinates
+                    // Transform data by adding a position property (containing coordinates)
                     position: { lat: biker.latitude, lng: biker.longitude },
                 }));
                 setBikers(initialBikers);
@@ -51,7 +51,6 @@ const Location = () => {
             }
         }, 2000);
 
-        // Prevent memory leak when component unmounts!
         return () => clearInterval(interval);
     }, []);
 
