@@ -22,7 +22,7 @@ const Countdown = () => {
         return timeLeft;
     };
 
-    // Initializes the timeLeft state variable using the useState hook with the initial value obtained from the calculateTimeLeft function
+    // Initialises the timeLeft state variable using the useState hook with the initial value obtained from the calculateTimeLeft function
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     // Runs side effects after the component renders. In this case, it updates the timeLeft state variable every second using a setTimeout function
