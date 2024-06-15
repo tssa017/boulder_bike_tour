@@ -211,9 +211,6 @@ const Form = () => {
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-8 rounded-md shadow-md max-w-sm mx-auto">
-                        <h2 className="text-lg font-semibold mb-4">
-                            Submission Status
-                        </h2>
                         <p className="mb-4">{modalMessage}</p>
                         <button
                             onClick={closeModal} // When a user clicks the close modal button, actually close the modal
